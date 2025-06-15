@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>整形級の変化を手術なしで実現 | 4つの最新美容技術統合プログラム</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', 'Yu Gothic UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        /* ヘッダー */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #e91e63;
+        }
+
+        .header-cta {
+            background: linear-gradient(135deg, #e91e63, #f06292);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+        }
+
+        .header-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+        }
+
+        /* メインビジュアル */
+        .hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(233, 30, 99, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: #e91e63;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-size: clamp(32px, 5vw, 56px);
+            font-weight: 800;
+            color: #2c2c2c;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(16px, 3vw, 24px);
+            color: #e91e63;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 25px 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            min-width: 160px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .feature-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .main-cta {
+            display: inline-block;
+            background: linear-gradient(135deg, #e91e63, #f06292);
+            color: white;
+            padding: 20px 50px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(233, 30, 99, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .main-cta:hover::before {
+            left: 100%;
+        }
+
+        .main-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(233, 30, 99, 0.5);
+        }
+
+        /* セクション共通 */
+        .section {
+            padding: 100px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 700;
+            color: #2c2c2c;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* お悩みセクション */
+        .problems {
+            background: #fafafa;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #e91e63, #f06292);
+        }
+
+        .problem-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .problem-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #fce4ec, #f8bbd9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+
+        .problem-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2c2c2c;
+        }
+
+        .problem-text {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* 技術紹介セクション */
+        .technologies {
+            background: white;
+        }
+
+        .tech-grid {
+            display: grid;
+            gap: 60px;
+            margin-top: 80px;
+        }
+
+        .tech-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .tech-item:nth-child(even) .tech-content {
+            order: -1;
+        }
+
+        .tech-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .tech-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .tech-number {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 60px;
+            height: 60px;
+            background: rgba(233, 30, 99, 0.9);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .tech-content {
+            padding: 20px;
+        }
+
+        .tech-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c2c2c;
+            margin-bottom: 10px;
+        }
+
+        .tech-subtitle {
+            color: #e91e63;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .tech-description {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .tech-points {
+            list-style: none;
+        }
+
+        .tech-points li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            color: #666;
+        }
+
+        .tech-points li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #e91e63;
+            font-weight: 700;
+        }
+
+        /* ビフォーアフター */
+        .results {
+            background: #fafafa;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .result-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .result-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .result-info {
+            padding: 30px;
+        }
+
+        .result-age {
+            color: #e91e63;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .result-effect {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2c2c2c;
+            line-height: 1.5;
+        }
+
+        /* オファーセクション */
+        .offer {
+            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offer::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23e91e63" fill-opacity="0.05"><circle cx="30" cy="30" r="2"/></g></g></svg>');
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .offer-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .offer-title {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 800;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #e91e63, #f06292);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .price-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 50px;
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+
+        .price-original {
+            font-size: 24px;
+            color: #999;
+            text-decoration: line-through;
+            margin-bottom: 15px;
+        }
+
+        .price-special {
+            font-size: clamp(40px, 8vw, 64px);
+            font-weight: 800;
+            color: #e91e63;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(233, 30, 99, 0.5);
+        }
+
+        .price-note {
+            font-size: 16px;
+            color: #ccc;
+        }
+
+        .benefits-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 60px 0;
+            flex-wrap: wrap;
+        }
+
+        .benefit-item {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #e91e63, #f06292);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+
+        .benefit-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+        }
+
+        /* Q&A */
+        .qa {
+            background: white;
+        }
+
+        .qa-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .qa-item {
+            background: #fafafa;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .qa-question {
+            padding: 30px;
+            font-weight: 600;
+            font-size: 18px;
+            cursor: pointer;
+            position: relative;
+            color: #2c2c2c;
+            border-left: 4px solid #e91e63;
+            background: white;
+        }
+
+        .qa-question::after {
+            content: '+';
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #e91e63;
+            transition: transform 0.3s ease;
+        }
+
+        .qa-question.active::after {
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        .qa-answer {
+            padding: 0 30px 30px;
+            color: #666;
+            line-height: 1.7;
+            display: none;
+        }
+
+        .qa-answer.active {
+            display: block;
+        }
+
+        /* フッター */
+        .footer {
+            background: #2c2c2c;
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #e91e63;
+            margin-bottom: 30px;
+        }
+
+        .footer-text {
+            color: #999;
+            font-size: 14px;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .tech-item {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .tech-item:nth-child(even) .tech-content {
+                order: 0;
+            }
+
+            .hero-features {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .benefits-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .price-container {
+                padding: 30px 20px;
+            }
+        }
+
+        /* アニメーション */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Beauty Revolution</div>
+            <a href="#offer" class="header-cta">無料カウンセリング予約</a>
+        </div>
+    </header>
+
+    <!-- メインビジュアル -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">期間限定キャンペーン</div>
+            <h1 class="hero-title">整形級の変化を<br>手術なしで実現</h1>
+            <p class="hero-subtitle">4つの最新美容技術統合プログラム</p>
+            <p class="hero-description">
+                芸能人も通う最新技術を組み合わせた、あなただけのオーダーメイド美容プログラム。
+                筋膜・筋肉・骨・脂肪への統合アプローチで、理想の美しさを手に入れませんか？
+            </p>
+            <div class="hero-features">
+                <div class="feature-card">
+                    <div class="feature-icon">⏱️</div>
+                    <div class="feature-title">月1回でOK</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <div class="feature-title">業界No.1技術</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <div class="feature-title">整形級効果</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <div class="feature-title">完全無痛</div>
+                </div>
+            </div>
+            <a href="#offer" class="main-cta">今すぐ無料カウンセリングを予約</a>
+        </div>
+    </section>
+
+    <!-- お悩みセクション -->
+    <section class="section problems">
+        <div class="container">
+            <h2 class="section-title">こんなお悩みありませんか？</h2>
+            <p class="section-subtitle">年齢とともに変化する顔の悩み、一人で抱え込まないでください</p>
+            <div class="problems-grid">
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">😔</div>
+                    <h3 class="problem-title">フェイスラインの崩れ</h3>
+                    <p class="problem-text">年齢とともに下がるフェイスライン、ブルドッグ顔が気になる</p>
+                </div>
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">😟</div>
+                    <h3 class="problem-title">同年代より老けて見える</h3>
+                    <p class="problem-text">鏡を見るたびに年齢を感じてしまう</p>
+                </div>
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">😞</div>
+                    <h3 class="problem-title">エステ効果に満足できない</h3>
+                    <p class="problem-text">色々試したけど、期待した効果が得られない</p>
+                </div>
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">😰</div>
+                    <h3 class="problem-title">美容整形は怖い</h3>
+                    <p class="problem-text">効果は欲しいけど、手術のリスクや費用が心配</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技術紹介セクション -->
+    <section class="section technologies">
+        <div class="container">
+            <h2 class="section-title">4つの最新技術で理想の美を実現</h2>
+            <p class="section-subtitle">各分野のスペシャリストが開発した革新的技術を統合</p>
+            <div class="tech-grid">
+                <div class="tech-item fade-in">
+                    <div class="tech-image">
+                        <img src="assets/img/p-point_block01_img01.png" alt="アルティマリフト">
+                        <div class="tech-number">01</div>
+                    </div>
+                    <div class="tech-content">
+                        <h3 class="tech-title">アルティマリフト</h3>
+                        <p class="tech-subtitle">関西コレクション帯同・筋膜のプロによる施術</p>
+                        <p class="tech-description">
+                            美容整形から着想を得た筋膜リフトアップ術。手技のみで筋膜を引き上げ、
+                            整形レベルのリフトアップ効果を実現します。
+                        </p>
+                        <ul class="tech-points">
+                            <li>創業53年、累計9.8万件の施術実績</li>
+                            <li>1回の施術で1ヶ月効果が持続</li>
+                            <li>痛みなし・ダウンタイムなし</li>
+                            <li>国内外6500名以上への技術指導実績</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tech-item fade-in">
+                    <div class="tech-image">
+                        <img src="assets/img/p-point_block02_img01.png" alt="セルキュア4T PLUS">
+                        <div class="tech-number">02</div>
+                    </div>
+                    <div class="tech-content">
+                        <h3 class="tech-title">セルキュア4T PLUS</h3>
+                        <p class="tech-subtitle">田中みな実も愛用・特許波I.W波の美顔器</p>
+                        <p class="tech-description">
+                            美顔器界のレジェンド的存在。独自の特許波形が深層筋肉まで届き、
+                            表情筋を効果的に引き締めます。
+                        </p>
+                        <ul class="tech-points">
+                            <li>特許取得のI.W波による深層アプローチ</li>
+                            <li>10段階の出力調整で個別対応</li>
+                            <li>多数の芸能人が愛用</li>
+                            <li>エステサロン専用の高性能機器</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tech-item fade-in">
+                    <div class="tech-image">
+                        <img src="assets/img/p-whats_img01.png" alt="骨美容整骨">
+                        <div class="tech-number">03</div>
+                    </div>
+                    <div class="tech-content">
+                        <h3 class="tech-title">骨美容整骨</h3>
+                        <p class="tech-subtitle">小顔分野No.1・骨格からのアプローチ</p>
+                        <p class="tech-description">
+                            顔の骨格バランスを整えることで、根本から小顔を実現。
+                            筋膜・筋肉だけでなく、骨レベルでの美しさを追求します。
+                        </p>
+                        <ul class="tech-points">
+                            <li>小顔矯正分野でNo.1の実績</li>
+                            <li>左右差の改善で整った顔立ちへ</li>
+                            <li>骨格の歪みを根本から改善</li>
+                            <li>自然で美しいフェイスラインを形成</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tech-item fade-in">
+                    <div class="tech-image">
+                        <img src="assets/img/p-whats_img02.png" alt="エルフィーノ">
+                        <div class="tech-number">04</div>
+                    </div>
+                    <div class="tech-content">
+                        <h3 class="tech-title">エルフィーノ</h3>
+                        <p class="tech-subtitle">最新SMN理論・ハイパワー痩身マシン</p>
+                        <p class="tech-description">
+                            ハイフが使えなくなった美容業界で注目の最新技術。
+                            超音波とラジオ波の同時施術で、効率的に脂肪へアプローチします。
+                        </p>
+                        <ul class="tech-points">
+                            <li>SMN理論による革新的アプローチ</li>
+                            <li>従来機器の2倍以上の効率</li>
+                            <li>20通りの施術でオーダーメイド対応</li>
+                            <li>顔だけでなくボディケアも可能</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ビフォーアフター -->
+    <section class="section results">
+        <div class="container">
+            <h2 class="section-title">驚きの変化をご覧ください</h2>
+            <p class="section-subtitle">実際のお客様の変化をご紹介します</p>
+            <div class="results-grid">
+                <div class="result-card fade-in">
+                    <img src="assets/img/p-example_img01.png" alt="30代前半のお客様の変化" class="result-image">
+                    <div class="result-info">
+                        <p class="result-age">30代前半のお客様</p>
+                        <p class="result-effect">むくみ・たるみが解消され、シャープなフェイスラインに</p>
+                    </div>
+                </div>
+                <div class="result-card fade-in">
+                    <img src="assets/img/p-example_img02.png" alt="50代前半のお客様の変化" class="result-image">
+                    <div class="result-info">
+                        <p class="result-age">50代前半のお客様</p>
+                        <p class="result-effect">左右差が改善され、若々しい印象に変化</p>
+                    </div>
+                </div>
+                <div class="result-card fade-in">
+                    <img src="assets/img/p-example_img04.png" alt="40代後半のお客様の変化" class="result-image">
+                    <div class="result-info">
+                        <p class="result-age">40代後半のお客様</p>
+                        <p class="result-effect">顔全体の引き締めで卵型の理想的なフェイスラインへ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- オファーセクション -->
+    <section class="section offer" id="offer">
+        <div class="container">
+            <div class="offer-content">
+                <h2 class="offer-title">期間限定特別キャンペーン</h2>
+                <div class="price-container">
+                    <p class="price-original">通常価格 ¥50,000</p>
+                    <p class="price-special">¥19,800</p>
+                    <p class="price-note">※4つの技術をすべて体験できる特別プランです</p>
+                </div>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🎁</div>
+                        <p class="benefit-title">幹細胞マスク<br>プレゼント</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">📋</div>
+                        <p class="benefit-title">無料カウンセリング<br>付き</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🔄</div>
+                        <p class="benefit-title">効果保証<br>制度あり</p>
+                    </div>
+                </div>
+                <a href="#" class="main-cta">今すぐ無料カウンセリングを予約する</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Q&A -->
+    <section class="section qa">
+        <div class="container">
+            <h2 class="section-title">よくあるご質問</h2>
+            <p class="section-subtitle">お客様からよくいただくご質問にお答えします</p>
+            <div class="qa-list">
+                <div class="qa-item fade-in">
+                    <div class="qa-question">施術は痛くありませんか？</div>
+                    <div class="qa-answer">
+                        痛みのない優しい施術を心がけています。施術中に寝てしまう方もいらっしゃるほど、リラックスしてお受けいただけます。
+                    </div>
+                </div>
+                <div class="qa-item fade-in">
+                    <div class="qa-question">どのくらいの頻度で通えばいいですか？</div>
+                    <div class="qa-answer">
+                        月1回のペースで十分な効果を実感いただけます。継続することで、施術頻度を徐々に減らしていくことも可能です。
+                    </div>
+                </div>
+                <div class="qa-item fade-in">
+                    <div class="qa-question">美容整形やボトックスを受けたことがありますが大丈夫ですか？</div>
+                    <div class="qa-answer">
+                        カウンセリング時に詳しくお聞きし、お客様の状態に合わせて最適な施術プランをご提案いたします。
+                    </div>
+                </div>
+                <div class="qa-item fade-in">
+                    <div class="qa-question">効果はどのくらい持続しますか？</div>
+                    <div class="qa-answer">
+                        個人差はありますが、1回の施術で約1ヶ月程度効果が持続します。定期的な施術により、より長期的な効果も期待できます。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">Beauty Revolution</div>
+            <p class="footer-text">&copy; 2024 Beauty Revolution. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // スムーズスクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Q&Aの開閉
+        document.querySelectorAll('.qa-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = question.classList.contains('active');
+
+                // すべて閉じる
+                document.querySelectorAll('.qa-question').forEach(q => {
+                    q.classList.remove('active');
+                });
+                document.querySelectorAll('.qa-answer').forEach(a => {
+                    a.classList.remove('active');
+                });
+
+                // クリックしたものを開く/閉じる
+                if (!isActive) {
+                    question.classList.add('active');
+                    answer.classList.add('active');
+                }
+            });
+        });
+
+        // スクロールアニメーション
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // アニメーション対象要素の監視
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ヘッダースクロール効果
+        let lastScrollY = window.scrollY;
+        const header = document.querySelector('.header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > lastScrollY && window.scrollY > 100) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            lastScrollY = window.scrollY;
+        });
+    </script>
+</body>
+</html>
